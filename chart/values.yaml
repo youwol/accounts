@@ -1,0 +1,76 @@
+# env : set of values of "minio", "redis", "openidBaseUrl", "openidClient", "keycloakAdmin"
+#
+# Setup container environnement for these functionalities.
+#
+# env:
+#   - minio            # MINIO_HOST_PORT, MINIO_ACCESS_KEY, MINIO_ACCESS_SECRET
+#   - openidBaseUrl    # OPENID_BASE_URL
+#   - openidClient     # OPENID_CLIENT_ID, OPENID_CLIENT_SECRET
+#   - keycloakAdmin    # KEYCLOAK_ADMIN_CLIENT_ID, KEYCLOAK_ADMIN_CLIENT_SECRET, KEYCLOAK_ADMIN_BASE_URL
+#   - redis            # REDIS_HOST, REDIS_USERNAME, REDIS_PASSWORD
+env:
+  - openidClient
+  - redis
+  - keycloakAdmin
+
+
+# Ingress path : url path
+#
+# The path declared in the ingress manifest.
+#
+# If set, an ingress with className "kong" will be templated. Beyond using this value as path, this ingress will be
+# specified with the platform domain as host, a certificate managed by letsencrypt and HTTP redirection to HTTPS.
+#
+# If not set, no ingress manifest is output
+#
+ingressPath: "/api/accounts"
+
+
+
+# docker image tag : string
+#
+# If not set, the AppVersion of the chart will be use for docker image tag
+#
+# See also imagePullPolicy
+#
+# imageTag: "latest"
+
+
+
+# Image pull policy : one of "Always", "IfNotPresent" or "Never"
+#
+# If not set, the behaviour will depend upon docker image tag and chart AppVersion :
+#
+#    Tag      |   AppVersion   |  policy  | Notes
+# ------------+----------------+----------+-------
+#  "latest"   |    x.y.z       | not set  | k8s will default to Always since tag is "latest"
+#  ≠ "latest" |    x.y.z       | mot est  | k8s will default to IfNotPresent
+#  any        |    x.y.z-wip   | "Always" |
+#
+# See also imageTag
+#
+# imagePullPolicy: "Always"
+
+
+
+# probeSecret: boolean
+#
+# If true:
+# - a random string is looked up in live deployment or generated on chart first installation.
+# - health check probes by k8s will send an HTTP header "x-k8s-probe-secret" with that value.
+# - An environnement variable "K8S_PROBE_SECRET" is defined with that value.
+#
+# If not set or false, none of the above is done
+#
+# probeSecret: true
+
+
+
+#  platform domain value : FQDN
+#
+# A replacement for the platform domain specified in the ingress manifest.
+#
+# Since platform domain is lookup in deployed configMap, templating will fail when using helm template or --dry-run.
+# This value is only use in these cases.
+#
+# platformDomain: "platform.domain"
