@@ -1,6 +1,6 @@
 apiVersion: v2
-name: accounts-backend # Will be used as docker image name
-description: Deployment of youwol platform accounts-backend
+name: accounts # Will be used as docker image name
+description: Deployment of youwol platform accounts
 type: application
 
 # Chart version : increment when, and only when, modifying ./chart/ directory content
