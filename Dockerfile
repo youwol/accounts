@@ -15,7 +15,7 @@ COPY /py-youwol/docker-requirements.txt /root/
 RUN pip3 install --no-cache-dir --upgrade -r "docker-requirements.txt"
 
 COPY /py-youwol/youwol_utils /root/youwol_utils
-COPY /py-youwol/youwol_accounts_backend /root/youwol_accounts_backend
+COPY /py-youwol/youwol_accounts /root/youwol_accounts
 COPY /src /root/
 
 

@@ -1,6 +1,6 @@
 import os
 
-from youwol_accounts_backend import Configuration
+from youwol_accounts import Configuration
 from youwol_utils import RedisCacheClient, CleanerThread, factory_local_cache
 from youwol_utils.clients.oidc.oidc_config import PrivateClient, OidcInfos
 from youwol_utils.context import DeployedContextReporter
