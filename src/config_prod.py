@@ -1,13 +1,13 @@
 import os
 
-from youwol_accounts import Configuration
-from youwol_utils import RedisCacheClient, CleanerThread, factory_local_cache
-from youwol_utils.clients.oidc.oidc_config import PrivateClient, OidcInfos
-from youwol_utils.context import DeployedContextReporter
-from youwol_utils.middlewares import AuthMiddleware
-from youwol_utils.middlewares import JwtProviderCookie, JwtProviderBearer
-from youwol_utils.servers.env import REDIS, KEYCLOAK_ADMIN, OPENID_CLIENT, Env
-from youwol_utils.servers.fast_api import AppConfiguration, ServerOptions, FastApiMiddleware
+from youwol.backends.accounts import Configuration
+from youwol.utils import RedisCacheClient, CleanerThread, factory_local_cache
+from youwol.utils.clients.oidc.oidc_config import PrivateClient, OidcInfos
+from youwol.utils.context import DeployedContextReporter
+from youwol.utils.middlewares import AuthMiddleware
+from youwol.utils.middlewares import JwtProviderCookie, JwtProviderBearer
+from youwol.utils.servers.env import REDIS, KEYCLOAK_ADMIN, OPENID_CLIENT, Env
+from youwol.utils.servers.fast_api import AppConfiguration, ServerOptions, FastApiMiddleware
 
 
 async def get_configuration():

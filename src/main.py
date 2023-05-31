@@ -1,6 +1,6 @@
 
-from youwol_accounts import get_router
-from youwol_utils.servers.fast_api import serve, FastApiApp, FastApiRouter, AppConfiguration, \
+from youwol.backends.accounts import get_router
+from youwol.utils.servers.fast_api import serve, FastApiApp, FastApiRouter, AppConfiguration, \
     select_configuration_from_command_line
 
 

@@ -1,6 +1,6 @@
 import sys
 
-from youwol_utils.utils_paths import get_running_py_youwol_env
+from youwol.utils.utils_paths import get_running_py_youwol_env
 
 
 async def get_py_youwol_env():
